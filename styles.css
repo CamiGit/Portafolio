@@ -63,17 +63,15 @@ nav.scrolled { box-shadow: 0 4px 40px rgba(0,200,150,0.07); }
   align-items: center;
 }
 .nav-logo-img {
-  height: 300px;
+  height: 200px;
   width: auto;
   object-fit: contain;
 }
 
 .nav-links {
   display: flex;
-  gap: 2rem; list-style:
-  none; position: relative;
-  left: 30%;
-  transform: translate(-50%);
+  gap: 2rem;
+  list-style: none;
 }
 
 .nav-links a {
@@ -81,7 +79,6 @@ nav.scrolled { box-shadow: 0 4px 40px rgba(0,200,150,0.07); }
   color: var(--muted); text-decoration: none;
   letter-spacing: 0.5px; text-transform: uppercase;
   transition: color .25s;
-  position: relative;
 }
 .nav-links a::after {
   content: '';
@@ -118,7 +115,6 @@ nav.scrolled { box-shadow: 0 4px 40px rgba(0,200,150,0.07); }
   display: flex;
   align-items: center;
   gap: .8rem;
-  margin-left: auto; /* ← esto los empuja a la derecha */
 }
 
 /* ─── HAMBURGER ─── */
@@ -302,7 +298,7 @@ section {
 .edu-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem; }
+  gap: 1.5rem; }
 
 .edu-card {
   background: var(--surface);
@@ -318,17 +314,26 @@ section {
   height: 3px;
   background: linear-gradient(90deg, var(--green), transparent);
 }
-.edu-card:hover { transform: translateY(-4px); border-color: rgba(0,200,150,0.3); box-shadow: 0 12px 40px rgba(0,200,150,0.1); }
+.edu-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0,200,150,0.3);
+  box-shadow: 0 12px 40px rgba(0,200,150,0.1); }
 
 .edu-year {
-  font-size: 1.2rem; font-weight: 600; letter-spacing: 1px;
-  color: var(--green); text-transform: uppercase; margin-bottom: .8rem;
-  background: var(--green-glow); padding: .25rem .7rem; border-radius: 50px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--green);
+  text-transform: uppercase;
+  margin-bottom: .8rem;
+  background: var(--green-glow);
+  padding: .25rem .7rem;
+  border-radius: 50px;
   display: inline-block;
 }
-.edu-degree { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 2.1rem; color: var(--white); margin-bottom: .6rem; }
-.edu-school { font-size: 1.5rem; color: var(--muted); margin-bottom: 1rem; }
-.edu-desc { font-size: 1.2rem; color: var(--muted); line-height: 1.65; }
+.edu-degree { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: .4rem; }
+.edu-school { font-size: .9rem; color: var(--muted); margin-bottom: .8rem; }
+.edu-desc { font-size: .85rem; color: var(--muted); line-height: 1.65; }
 
 /* ─── EXPERIENCIA - TIMELINE ─── */
 .timeline { position: relative; padding-left: 2rem; }
@@ -435,7 +440,7 @@ section {
   align-items: center;
   min-height: auto;
   padding: 4rem 8%;
-  scroll-margin-top: calc(var(--nav-h) + 2rem);
+  scroll-margin-top: 120px;
 }
 
 .about-img-wrap { position: relative; }

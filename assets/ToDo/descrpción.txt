@@ -1,0 +1,38 @@
+https://github.com/CamiGit/ToDo.git
+
+ToDo Zone
+
+Es una aplicación Full-Stack (actualmente en desarrollo) enfocada en optimizar la organización personal mediante
+una interfaz intuitiva y una arquitectura de datos escalable. El proyecto busca mejorar la gestión de tareas a través de una
+categorización dinámica y un control eficiente del flujo de actividades.
+
+Desde el enfoque frontend, se diseñó un layout limpio, moderno y adaptable, basado en principios de jerarquía visual que
+facilitan la interacción del usuario. La interfaz cuenta con una zona de captura centralizada que integra la entrada de
+texto y la selección de categorías, reduciendo la carga cognitiva y agilizando la creación de tareas.
+
+El sistema incorpora contadores dinámicos que reflejan en tiempo real el progreso del usuario, mostrando la relación entre
+tareas completadas y pendientes. Además, se implementó un código de colores semántico que permite identificar rápidamente
+el estado de cada tarea: urgentes, completadas o activas, reforzado con elementos visuales como el tachado de texto.
+
+Cada tarea se representa como un componente modular independiente, con controles específicos para marcar como completada,
+priorizar o eliminar, lo que mejora la escalabilidad y mantenibilidad del código.
+
+A nivel lógico, la aplicación destaca por su manejo de estados, permitiendo una experiencia altamente reactiva.
+Cada interacción del usuario genera actualizaciones inmediatas en el DOM, garantizando coherencia visual y funcional.
+Se incluyeron validaciones de flujo mediante ventanas modales de confirmación para acciones críticas, evitando la pérdida
+accidental de información.
+
+Asimismo, se integró un sistema de categorización que permite organizar tareas bajo diferentes etiquetas, sentando las
+bases para futuras funcionalidades de filtrado avanzado.
+
+Actualmente, el proyecto se encuentra en proceso de evolución hacia una arquitectura Full-Stack. Se está desarrollando
+una API RESTful que permitirá la persistencia de datos y la sincronización entre sesiones y dispositivos. Como siguiente
+paso, se contempla la implementación de autenticación de usuarios para ofrecer una experiencia personalizada y segura.
+
+Este proyecto demuestra habilidades en:
+
+Desarrollo de interfaces modernas con enfoque en UX/UI
+Manejo de estados y reactividad en JavaScript
+Manipulación eficiente del DOM
+Diseño de componentes modulares
+Planificación de arquitecturas Full-Stack escalables

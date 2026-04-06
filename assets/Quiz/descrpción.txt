@@ -1,0 +1,27 @@
+https://quiz-woad-seven-86.vercel.app/
+https://github.com/CamiGit/Quiz
+
+Desarrollé el front-end de una aplicación interactiva de tipo quiz, enfocada en ofrecer una experiencia dinámica y visualmente
+atractiva para el usuario. La interfaz consume una API externa encargada de suministrar las preguntas junto con sus respectivas
+opciones de respuesta, permitiendo una integración fluida entre la lógica de negocio y la presentación.
+
+El flujo de la aplicación guía al usuario desde una pantalla de inicio hasta la visualización de preguntas, selección de
+respuestas y finalmente un resumen con la puntuación obtenida. Cada interacción fue diseñada para ser intuitiva, con
+retroalimentación visual inmediata que indica respuestas correctas e incorrectas.
+
+Uno de los mayores retos técnicos del proyecto fue la construcción de la estructura visual basada en coordenadas cartesianas.
+Este enfoque permitió posicionar y escalar elementos de forma precisa dentro del layout, logrando una composición moderna
+con líneas geométricas y una distribución no convencional de los componentes. Esto implicó un manejo detallado de CSS,
+incluyendo posicionamiento absoluto, transformaciones y adaptación responsive.
+
+Además, se implementaron cambios dinámicos de tema (claro/oscuro) y transiciones suaves entre preguntas, mejorando la
+experiencia de usuario. El diseño mantiene consistencia visual en todas las vistas, desde el inicio hasta la pantalla
+de resultados.
+
+Este proyecto demuestra habilidades en:
+
+Consumo de APIs con JavaScript
+Manipulación del DOM
+Diseño UI moderno con CSS avanzado
+Manejo de estados en interfaces interactivas
+Pensamiento lógico para estructuración visual compleja

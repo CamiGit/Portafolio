@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portafolio | Full Stack Developer</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav id="navbar">
+  <a href="#inicio" class="nav-logo">
+  <img src="assets/logo_portafolio_sinFondo.png" alt="Logo" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#inicio" class="active">Inicio</a></li>
+    <li><a href="#educacion">Educación</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+  </ul>
+  <a href="assets/CV-Camilo-Orjuela.pdf" download class="nav-cv">Descargar CV</a>
+  <a href="mailto:camilo.orjuela@hotmail.com" class="nav-cta">Contáctame</a>
+  <button class="hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="inicio">
+  <div class="hero-content">
+    <div class="hero-badge">Disponible</div>
+    
+    <h1 class="hero-title">
+      Hola, soy <span class="accent">Camilo Orjuela</span>
+      <span class="line2">Full Stack Developer</span>
+    </h1>
+    <p class="hero-desc">
+      Desarrollador apasionado por construir soluciones web completas, desde interfaces modernas hasta APIs robustas. Enfocado en código limpio, buenas prácticas y aprendizaje continuo.
+    </p>
+    <div class="hero-btns">
+      <a href="#proyectos" class="btn-primary">Ver proyectos</a>
+      <a href="#sobre-mi" class="btn-outline">Sobre mí</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">6+</div>
+        <div class="stat-label">Tecnologías</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Proyectos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Años en formación</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-avatar-wrap">
+    <div class="avatar-glow"></div>
+    <img src="assets/img_portafolio.png" alt="Camilo Orjuela" class="hero-avatar">
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ EDUCACIÓN ═══════════════ -->
+<section id="educacion">
+  <div class="section-header reveal">
+    <div class="section-tag">Formación académica</div>
+    <h2 class="section-title">Mi <span>Educación</span></h2>
+  </div>
+
+  <div class="edu-grid">
+    <div class="edu-card reveal reveal-delay-1">
+      <span class="edu-year">Enero 2027</span>
+      <div class="edu-degree">Especialista en Seguridad de la información con enfasis en Desarrollo Seguro de Software</div>
+      <div class="edu-school"><i class="fa-solid fa-building-columns"></i> Politecnico Grancolombiano </div>
+      <p class="edu-desc">Formación integral enfocada en la protección de aplicaciones desde su diseño hasta su implementación, aplicando buenas practicas, analisis de vulnerabilidades y estandares de seguridad.</p>
+    </div>
+
+    <div class="edu-card reveal reveal-delay-2">
+      <span class="edu-year">Junio 2026</span>
+      <div class="edu-degree">Desarrollador Junior Full Stack</div>
+      <div class="edu-school"><i class="fa-solid fa-certificate"></i> Generation </div>
+      <p class="edu-desc">Desarrollo front-end y back-end con HTML, CSS, JavaScript, Node.js y bases de datos.</p>
+    </div>
+
+    <div class="edu-card reveal reveal-delay-3">
+      <span class="edu-year">Enero 2026</span>
+      <div class="edu-degree">Ingeniero de Software</div>
+      <div class="edu-school"><i class="fa-solid fa-building-columns"></i> Politecnico Grancolombiano </div>
+      <p class="edu-desc">Desarrollo de soluciones eficientes y escalables, con experiencia en diseño, construcción y mantenimiento de aplicaciones, aplicando buenas prácticas, metodologías ágiles y principios de calidad para crear productos funcionales y de alto impacto.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ EXPERIENCIA ═══════════════ -->
+<section id="experiencia">
+  <div class="section-header reveal">
+    <div class="section-tag">Trayectoria profesional</div>
+    <h2 class="section-title">Mi <span>Experiencia</span></h2>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item reveal reveal-delay-2">
+      <div class="timeline-dot"></div>
+      <div class="timeline-header">
+        <span class="timeline-role">Desarrollador Web Freelance</span>
+        <span class="timeline-period">2025 - Presente</span>
+      </div>
+      <div class="timeline-company"><i class="fa-solid fa-laptop-code"></i> Proyectos independientes</div>
+      <p class="timeline-desc">Creación de sitios web y pequeñas aplicaciones para clientes particulares. Gestión completa del proyecto: análisis, diseño, desarrollo y entrega.</p>
+      <div class="timeline-tags">
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">React</span>
+        <span class="tag">MySQL</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal reveal-delay-1">
+      <div class="timeline-dot"></div>
+      <div class="timeline-header">
+        <span class="timeline-role">Manager</span>
+        <span class="timeline-period">2023 - 2025</span>
+      </div>
+      <div class="timeline-company"><i class="fa-solid fa-building"></i> Ko Asian Kitchen </div>
+      <p class="timeline-desc">● Lideré la gestión operativa y de personal (más de 60 colaboradores) en tres puntos de venta, impulsando la innovación tecnológica en la administración y control de operaciones. <br>
+                              ● Implemente aplicaciones personalizadas para la gestión de los puntos de venta y desarrolle dashboards en Power Bi para el análisis estratégico de datos.</p>
+      <div class="timeline-tags">
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Power Bi</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal reveal-delay-3">
+      <div class="timeline-dot"></div>
+      <div class="timeline-header">
+        <span class="timeline-role">Administrador</span>
+        <span class="timeline-period">2021 - 2022</span>
+      </div>
+      <div class="timeline-company"><i class="fa-solid fa-building"></i> Fast Moda</div>
+      <p class="timeline-desc">● Administré integralmente las operaciones del punto de venta, con enfoque en la innovación y optimización a través de herramientas tecnológicas. <br>
+                              ● Implementé y gestioné aplicaciones de control basada en el sistema POS automatizando el seguimiento de costos e inventarios.</p>
+      <div class="timeline-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Linux</span>
+        <span class="tag">Redes</span>
+        <span class="tag">SQL</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ PROYECTOS ═══════════════ -->
+<section id="proyectos">
+  <div class="section-header reveal">
+    <div class="section-tag">Trabajo destacado</div>
+    <h2 class="section-title">Mis <span>Proyectos</span></h2>
+  </div>
+
+  <div class="projects-grid">
+
+    <div class="project-card reveal reveal-delay-1">
+      <img src="assets/MoWood/img/Inicio.png" alt="MoWood" class="project-img">
+      <div class="project-title">MoWood</div>
+      <p class="project-desc">Pagina web estatica, diseñada para mostrar productos de madera de alta calidad.</p>
+      <div class="timeline-tags" style="margin-bottom:1rem;">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">HTML/CSS</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/CamiGit/MoWood.git" class="project-link"><i class="fa-brands fa-github"></i> Repositorio</a>
+        <a href="https://mo-wood.vercel.app/" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal reveal-delay-2">
+      <img src="assets/Quiz/img/inicio.png" alt="Quiz" class="project-img">
+      <div class="project-title">Desarrollo Front-End Conexión API</div>
+      <p class="project-desc">Conexión a una API REST para consumir y mostrar datos en una aplicación web desarrollada con React.</p>
+      <div class="timeline-tags" style="margin-bottom:1rem;">
+        <span class="tag">React</span>
+        <span class="tag">HTML/CSS</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/CamiGit/Quiz.git" class="project-link"><i class="fa-brands fa-github"></i> Repositorio</a>
+        <a href="https://quiz-woad-seven-86.vercel.app/" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal reveal-delay-3">
+      <img src="assets/ToDo/img/confirmación.png" alt="ToDo" class="project-img">
+      <div class="project-title">Task Manager</div>
+      <p class="project-desc">Proyecto en desarrollo, organizador de tareas, desarrollado en JavaScript.</p>
+      <div class="timeline-tags" style="margin-bottom:1rem;">
+        <span class="tag">JavaScript</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">Git</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/CamiGit/ToDo.git" class="project-link"><i class="fa-brands fa-github"></i> Repositorio</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SKILLS -->
+  <div class="skills-section reveal">
+    <div class="skills-title">Tecnologías que manejo</div>
+    <div class="skills-grid">
+      <div class="skill-pill"><i class="fa-brands fa-html5"></i> HTML / CSS / JS</div>
+      <div class="skill-pill"><i class="fa-brands fa-node-js"></i> Node.js</div>
+      <div class="skill-pill"><i class="fa-brands fa-python"></i> Python</div>
+      <div class="skill-pill"><i class="fa-brands fa-react"></i> React</div>
+      <div class="skill-pill"><i class="fa-solid fa-database"></i> SQL / Bases de datos</div>
+      <div class="skill-pill"><i class="fa-brands fa-java"></i> Java</div>
+      <div class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git / GitHub</div>
+      <div class="skill-pill"><i class="fa-solid fa-terminal"></i> REST APIs</div>
+      <div class="skill-pill"><i class="fa-solid fa-code"></i> Metodologías Ágiles</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div> 
+
+<!-- ═══════════════ SOBRE MÍ ═══════════════ -->
+<section id="sobre-mi">
+  <div class="about-img-wrap reveal">
+    <img src="assets/img_portafolio.png" alt="Camilo Orjuela" class="hero-avatar-about">
+    <div class="about-card">
+      <div class="num">100%</div>
+      <div class="lbl">Compromiso</div>
+    </div>
+  </div>
+
+  <div class="about-text">
+    <div class="section-header reveal">
+      <div class="section-tag">Conóceme</div>
+      <h2 class="section-title">Sobre <span>Mí</span></h2>
+    </div>
+    <p class="about-bio reveal">
+      Soy un desarrollador Full Stack junior apasionado por la tecnología y la resolución de problemas. Me encuentro en constante aprendizaje, explorando tanto el front-end como el back-end para construir aplicaciones completas y funcionales. Disfruto trabajar en equipo, seguir buenas prácticas de código y mantenerme actualizado con las nuevas tendencias del sector.
+    </p>
+    <div class="about-info reveal reveal-delay-1">
+      <div class="info-item">
+        <div class="info-label">Nombre</div>
+        <div class="info-val">Camilo Orjuela Bonilla</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Ubicación</div>
+        <div class="info-val">Colombia</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Perfil</div>
+        <div class="info-val">Full Stack Developer</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Estado</div>
+        <div class="info-val" style="color:var(--green);">✓ Disponible</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Correo</div>
+        <div class="info-val">camilo.orjuela@hotmail.com</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Teléfono</div>
+        <div class="info-val">+57 300 337 1524</div>
+      </div>
+    </div>
+    <div class="social-links reveal reveal-delay-2">
+      <a href="https://www.linkedin.com/in/camilo-orjuela-bonilla-desarrollador-full-stack/" class="social-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/camilo-orjuela" class="social-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="mailto:camilo.orjuela@hotmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i> Email</a>
+      <a href="https://wa.me/573003371524" class="social-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONTACT STRIP ═══════════════ -->
+<div class="contact-strip reveal">
+  <h2>¿Tienes un proyecto en mente?</h2>
+  <p>Estoy abierto a oportunidades laborales, proyectos freelance y colaboraciones.</p>
+  <div class="contact-actions">
+    <a href="mailto:camilo.orjuela@hotmail.com" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> &nbsp;Enviar mensaje</a>
+    <a href="https://wa.me/573003371524" class="btn-outline"><i class="fa-brands fa-whatsapp"></i> &nbsp;WhatsApp</a>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <img src="assets/logo_portafolio_sinFondo.png" alt="Logo" class="nav-logo-img">
+  <p>© 2025 Camilo Orjuela · Hecho con 💚 en Colombia</p>
+  <a href="#inicio" class="back-top" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></a>
+</footer>
+
+<!-- Scripts -->
+<script src="main.js"></script>
+</body>
+</html>

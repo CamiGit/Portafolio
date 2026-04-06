@@ -1,0 +1,31 @@
+Sistema de Gestión E-commerce para "PetCam"
+https://github.com/CamiGit/Proy_PetCam.git
+
+Desarrollé una API robusta orientada a una tienda virtual de productos para mascotas, diseñada para soportar de manera
+eficiente todo el flujo de compra, desde la gestión de inventario hasta el procesamiento de órdenes. La arquitectura
+fue pensada para garantizar escalabilidad, organización del código y una clara separación de responsabilidades.
+
+La API permite la integración fluida con aplicaciones frontend, facilitando la administración y consumo de datos en tiempo
+real.
+
+El sistema incluye un módulo completo de gestión de inventario, donde se implementó un CRUD para productos que abarca
+atributos como nombre, precio, stock e imágenes. Esto permite mantener un control preciso sobre la disponibilidad y
+actualización de los productos.
+
+Adicionalmente, se desarrolló un módulo de usuarios que gestiona el registro de clientes, incorporando validaciones para
+asegurar la integridad de la información, incluyendo datos como dirección, información de contacto e identificación.
+
+Uno de los componentes clave es el sistema de pedidos, que integra la lógica de negocio necesaria para la creación y
+gestión de órdenes de compra. Este módulo vincula dinámicamente a los usuarios con sus productos adquiridos, registrando
+fechas de transacción y garantizando la trazabilidad de cada operación.
+
+Como valor agregado, se implementó un buscador optimizado mediante endpoints que permiten filtrar productos y usuarios
+en tiempo real, mejorando la eficiencia en la consulta de información.
+
+Este proyecto demuestra habilidades en:
+
+Diseño y desarrollo de APIs REST
+Modelado de datos y relaciones
+Implementación de lógica de negocio
+Validación de datos y manejo de errores
+Optimización de endpoints para búsqueda

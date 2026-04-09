@@ -3,6 +3,8 @@
   styles.css
 ═══════════════════════════════════════ */
 
+/* ─── VARIABLES GLOBALES ─── */
+/* Definición de colores, fondos, radios y alturas reutilizables. */
 :root {
   --green:       #00C896;
   --green-dark:  #00A07A;
@@ -19,10 +21,19 @@
   --nav-h:       150px;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ─── RESET GLOBAL ─── */
+/* Establece box-sizing y elimina los márgenes y padding por defecto. */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+/* ─── BASE TIPOGRÁFICA Y SCROLL SUAVE ─── */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; }
 
+/* ─── ESTILO PRINCIPAL DEL BODY ─── */
 body {
   font-family: 'DM Sans', sans-serif;
   background: var(--bg);
@@ -30,10 +41,15 @@ body {
   overflow-x: hidden;
 }
 
+/* ─── BARRA DE DESPLAZAMIENTO PERSONALIZADA ─── */
+/* Estilos de scrollbar para navegadores WebKit. */
 /* ─── SCROLLBAR ─── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--green-dark); border-radius: 3px; }
+
+/* ─── TEXTURA DE FONDO ─── */
+/* Capa de ruido sutil sobre el fondo para darle textura. */
 
 /* ─── NOISE TEXTURE ─── */
 body::before {
@@ -42,6 +58,9 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   pointer-events: none; z-index: 0;
 }
+
+/* ─── BARRA DE NAVEGACIÓN ─── */
+/* Navbar fija con fondo translúcido y borde inferior. */
 
 /* ─── NAVBAR ─── */
 nav {
@@ -57,6 +76,7 @@ nav {
 }
 nav.scrolled { box-shadow: 0 4px 40px rgba(0,200,150,0.07); }
 
+/* Logo y branding dentro del navbar */
 .nav-logo {
   text-decoration: none;
   display: flex;
@@ -74,11 +94,13 @@ nav.scrolled { box-shadow: 0 4px 40px rgba(0,200,150,0.07); }
   list-style: none;
 }
 
+/* Estilos de los enlaces de navegación */
 .nav-links a {
   font-size: 0.99rem; font-weight: 500;
   color: var(--muted); text-decoration: none;
   letter-spacing: 0.5px; text-transform: uppercase;
   transition: color .25s;
+  position: relative;
 }
 .nav-links a::after {
   content: '';
@@ -117,7 +139,7 @@ nav.scrolled { box-shadow: 0 4px 40px rgba(0,200,150,0.07); }
   gap: .8rem;
 }
 
-/* ─── HAMBURGER ─── */
+/* ─── BOTÓN HAMBURGUESA MÓVIL ─── */
 .hamburger {
   display: none; flex-direction: column; gap: 5px;
   cursor: pointer; background: none; border: none; padding: 4px;
@@ -127,15 +149,18 @@ nav.scrolled { box-shadow: 0 4px 40px rgba(0,200,150,0.07); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
 
-/* ─── SECTIONS ─── */
+/* ─── SECCIONES PRINCIPALES ─── */
+/* Contenedor base para cada sección de la página. */
 section {
   padding: 6rem 8% 5rem;
   min-height: 100vh;
   display: flex; flex-direction: column; justify-content: center;
   position: relative;
+  scroll-margin-top: calc(var(--nav-h) + 0.1rem);
 }
 
-/* ─── HERO ─── */
+/* ─── HERO PRINCIPAL ─── */
+/* Área de presentación con título, descripción y botones. */
 #inicio {
   padding-top: calc(var(--nav-h) + 4rem);
   min-height: 100vh;
@@ -178,6 +203,7 @@ section {
 .hero-title .accent { color: var(--green); }
 .hero-title .line2 { display: block; color: var(--muted); font-size: 85%; font-weight: 600; }
 
+/* Descripción principal dentro del hero. */
 .hero-desc {
   font-size: 1.7rem; line-height: 2.4rem;
   color: var(--muted); max-width: 700px;
@@ -185,11 +211,13 @@ section {
   animation: fadeUp .7s .2s ease both;
 }
 
+/* Botones principales del hero */
 .hero-btns {
   display: flex; gap: 3rem; flex-wrap: wrap;
   animation: fadeUp .7s .3s ease both;
 }
 
+/* Estilo del botón principal */
 .btn-primary {
   background: var(--green); color: var(--bg);
   padding: .75rem 2rem; border-radius: 10px;
@@ -209,7 +237,7 @@ section {
 }
 .btn-outline:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
 
-/* ─── AVATAR ─── */
+/* ─── AVATAR / IMAGEN DESTACADA ─── */
 .hero-avatar-wrap {
   animation: fadeUp .8s .2s ease both;
   position: relative;
@@ -225,6 +253,7 @@ section {
   position: relative; z-index: 1;
 }
 
+/* Contenedor de avatar o placeholder de imagen principal */
 .hero-avatar-placeholder {
   width: 500px; height: 500px;
   border-radius: 24px;
@@ -235,8 +264,11 @@ section {
   position: relative; z-index: 1;
 }
 
+/* Estilo alternativo para imagen secundaria de avatar */
 .hero-avatar-about {
-  width: 400px; height: 350px;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
   border-radius: 24px;
   object-fit: cover;
   border: 2px solid var(--border);
@@ -252,6 +284,7 @@ section {
   border-radius: 30px; z-index: 0;
 }
 
+/* Estadísticas destacadas del hero */
 /* ─── STATS ─── */
 .hero-stats {
   display: flex; gap: 2.5rem; margin-top: 2.5rem;
@@ -297,8 +330,9 @@ section {
 
 .edu-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem; }
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
 
 .edu-card {
   background: var(--surface);
@@ -399,6 +433,7 @@ section {
 .project-card:hover::after { transform: scaleX(1); }
 .project-card:hover { transform: translateY(-5px); border-color: rgba(0,200,150,0.25); box-shadow: 0 16px 50px rgba(0,200,150,0.1); }
 
+/* Imagen de miniatura del proyecto */
 .project-img {
   width: 100%;
   height: 180px;
@@ -419,6 +454,7 @@ section {
 .project-link:hover { opacity: .7; }
 
 /* ─── SKILLS ─── */
+/* Lista de habilidades representadas como pequeños pills. */
 .skills-section { margin-top: 4rem; }
 .skills-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 1.5rem; }
 .skills-grid { display: flex; flex-wrap: wrap; gap: .7rem; }
@@ -430,6 +466,8 @@ section {
   transition: border-color .25s, color .25s, transform .2s;
 }
 .skill-pill i { color: var(--green); font-size: .9rem; }
+
+/* Sección Sobre Mí con imagen y texto */
 .skill-pill:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
 
 /* ─── SOBRE MÍ ─── */
@@ -443,7 +481,11 @@ section {
   scroll-margin-top: 120px;
 }
 
-.about-img-wrap { position: relative; }
+.about-img-wrap {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+}
 .about-img-placeholder {
   width: 100%; aspect-ratio: 4/5;
   border-radius: 20px;
@@ -454,17 +496,6 @@ section {
   gap: 1rem; color: var(--muted);
 }
 .about-img-placeholder i { font-size: 4rem; color: var(--green); opacity: .6; }
-.about-card {
-  position: absolute; bottom: 1rem; right: 1rem;
-  background: var(--green);
-  color: var(--bg);
-  border-radius: 14px;
-  padding: 1rem 1.4rem;
-  font-family: 'Syne', sans-serif;
-  z-index: 2;
-}
-.about-card .num { font-size: 1.8rem; font-weight: 800; line-height: 1; }
-.about-card .lbl { font-size: .7rem; font-weight: 600; opacity: .8; }
 
 .about-text .section-header { margin-bottom: 1.5rem; }
 .about-bio { font-size: .95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
@@ -523,6 +554,7 @@ footer p { font-size: .82rem; color: var(--muted); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Clases de reveal para animar la aparición progresiva. */
 .reveal {
   opacity: 0;
   transform: translateY(32px);
@@ -535,9 +567,11 @@ footer p { font-size: .82rem; color: var(--muted); }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
+  /* Ajustes para pantallas medianas y móviles grandes */
   #inicio { grid-template-columns: 1fr; text-align: center; }
   .hero-avatar-wrap { display: none; }
   .hero-desc { max-width: 100%; }
+  .about-img-wrap { display: block; max-width: 320px; margin: 0 auto 2rem; }
   .hero-btns { justify-content: center; }
   .hero-stats { justify-content: center; }
   #sobre-mi { grid-template-columns: 1fr; gap: 2.5rem; }

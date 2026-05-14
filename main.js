@@ -78,3 +78,95 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   });
 });
 
+
+// =============================================
+//  PROYECTOS — preview híbrido (iframe + imagen)
+//  Pega este script antes de </body>
+// =============================================
+
+// ↓↓↓ CONFIGURA TUS PROYECTOS AQUÍ ↓↓↓
+const projects = [
+  {
+    type: 'iframe',
+    src:  'https://mo-wood.vercel.app/'
+  },
+  {
+    type: 'iframe',
+    src:  'https://quiz-woad-seven-86.vercel.app/'
+  },
+  {
+    type: 'iframe',
+    src:  'https://e-commerce-volt.vercel.app/'
+  },
+  {
+    type: 'image',
+    src:  'assets/timelyApp/timelyApp.png'
+  },
+];
+
+
+(function () {
+  const items      = document.querySelectorAll('.project-item');
+  const wrapper    = document.getElementById('preview-wrapper');
+  const currentNum = document.getElementById('current-num');
+
+  function buildOverlay() {
+    const overlay = document.createElement('div');
+    overlay.className = 'preview-overlay';
+    return overlay;
+  }
+
+  function loadPreview(index, animate) {
+    const project = projects[index];
+
+    if (animate) {
+      const existing = wrapper.querySelector('img, iframe');
+      if (existing) {
+        existing.classList.add('changing');
+      }
+    }
+
+    setTimeout(() => {
+      wrapper.innerHTML = '';
+
+      if (project.type === 'iframe') {
+        const iframe = document.createElement('iframe');
+        iframe.src   = project.src;
+        iframe.title = 'Preview proyecto ' + (index + 1);
+        if (animate) iframe.classList.add('changing');
+        wrapper.appendChild(iframe);
+        wrapper.appendChild(buildOverlay());
+
+        // pequeño delay para que el iframe empiece a cargar antes de mostrarlo
+        setTimeout(() => iframe.classList.remove('changing'), 50);
+
+      } else {
+        const img = document.createElement('img');
+        img.src = project.src;
+        img.alt = 'Preview proyecto ' + (index + 1);
+        if (animate) img.classList.add('changing');
+        wrapper.appendChild(img);
+        wrapper.appendChild(buildOverlay());
+
+        img.onload = () => img.classList.remove('changing');
+        // fallback por si onload no dispara
+        setTimeout(() => img.classList.remove('changing'), 300);
+      }
+
+      currentNum.textContent = String(index + 1).padStart(2, '0');
+    }, animate ? 200 : 0);
+  }
+
+  // Carga el primer proyecto sin animación
+  loadPreview(0, false);
+
+  // Click en cada item
+  items.forEach((item, i) => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('active')) return;
+      items.forEach(el => el.classList.remove('active'));
+      item.classList.add('active');
+      loadPreview(i, true);
+    });
+  });
+})();

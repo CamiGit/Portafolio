@@ -80,11 +80,10 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 
 
 // =============================================
-//  PROYECTOS — preview híbrido (iframe + imagen)
+//  PROYECTOS — preview híbrido (iframe + imagen + terminal)
 //  Pega este script antes de </body>
 // =============================================
 
-// ↓↓↓ CONFIGURA TUS PROYECTOS AQUÍ ↓↓↓
 const projects = [
   {
     type: 'iframe',
@@ -95,8 +94,8 @@ const projects = [
     src:  'https://quiz-woad-seven-86.vercel.app/'
   },
   {
-    type: 'iframe',
-    src:  'https://e-commerce-volt.vercel.app/'
+    type: 'terminal',
+    src:  'wss://clinica-server-production.up.railway.app'
   },
   {
     type: 'image',
@@ -116,16 +115,107 @@ const projects = [
     return overlay;
   }
 
+  function loadAnsiUp(callback) {
+    if (window.AnsiUp) { callback(); return; }
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/ansi_up@5.1.0/ansi_up.js';
+    script.onload = callback;
+    document.head.appendChild(script);
+  }
+
   function loadPreview(index, animate) {
     const project = projects[index];
 
     if (animate) {
-      const existing = wrapper.querySelector('img, iframe');
-      if (existing) {
-        existing.classList.add('changing');
-      }
+      const existing = wrapper.querySelector('img, iframe, div');
+      if (existing) existing.classList.add('changing');
     }
 
+    // ── TERMINAL ──────────────────────────────────────────────
+    if (project.type === 'terminal') {
+      setTimeout(() => {
+        wrapper.innerHTML = '';
+
+        const term = document.createElement('div');
+        term.style.cssText = `
+          width:100%; height:100%; background:#0d1117;
+          display:flex; flex-direction:column;
+          font-family:monospace; font-size:13px; color:#00ff88;
+          padding:1rem; box-sizing:border-box;
+        `;
+
+        const output = document.createElement('pre');
+        output.style.cssText = `
+          flex:1; overflow-y:auto; margin:0;
+          white-space:pre-wrap; word-break:break-word;
+        `;
+        output.innerHTML = 'Conectando...\n';
+
+        const inputRow = document.createElement('div');
+        inputRow.style.cssText = `
+          display:flex; align-items:center;
+          gap:6px; border-top:1px solid #1a2a1a;
+          padding-top:8px; margin-top:8px;
+        `;
+
+        const prompt = document.createElement('span');
+        prompt.textContent = '>';
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.style.cssText = `
+          flex:1; background:transparent; border:none;
+          outline:none; color:#00ff88;
+          font-family:monospace; font-size:13px;
+        `;
+        input.placeholder = 'escribe una opción y presiona Enter...';
+
+        inputRow.appendChild(prompt);
+        inputRow.appendChild(input);
+        term.appendChild(output);
+        term.appendChild(inputRow);
+        wrapper.appendChild(term);
+        wrapper.appendChild(buildOverlay());
+
+        currentNum.textContent = String(index + 1).padStart(2, '0');
+
+        loadAnsiUp(() => {
+          const ansi = new AnsiUp();
+          ansi.use_classes = false;
+
+          const ws = new WebSocket(project.src);
+
+          ws.onopen = () => {
+            output.innerHTML = '';
+          };
+
+          ws.onmessage = (e) => {
+            output.innerHTML += ansi.ansi_to_html(e.data);
+            output.scrollTop = output.scrollHeight;
+          };
+
+          ws.onerror = () => {
+            output.innerHTML += '\n❌ Error de conexión';
+          };
+
+          ws.onclose = () => {
+            output.innerHTML += '\n[Sesión cerrada]';
+          };
+
+          input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && ws.readyState === WebSocket.OPEN) {
+              ws.send(input.value);
+              input.value = '';
+            }
+          });
+        });
+
+      }, animate ? 200 : 0);
+
+      return;
+    }
+
+    // ── IFRAME / IMAGE ────────────────────────────────────────
     setTimeout(() => {
       wrapper.innerHTML = '';
 
@@ -137,7 +227,6 @@ const projects = [
         wrapper.appendChild(iframe);
         wrapper.appendChild(buildOverlay());
 
-        // pequeño delay para que el iframe empiece a cargar antes de mostrarlo
         setTimeout(() => iframe.classList.remove('changing'), 50);
 
       } else {
@@ -149,7 +238,6 @@ const projects = [
         wrapper.appendChild(buildOverlay());
 
         img.onload = () => img.classList.remove('changing');
-        // fallback por si onload no dispara
         setTimeout(() => img.classList.remove('changing'), 300);
       }
 

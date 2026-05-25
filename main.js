@@ -79,11 +79,6 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 });
 
 
-// =============================================
-//  PROYECTOS — preview híbrido (iframe + imagen + terminal)
-//  Pega este script antes de </body>
-// =============================================
-
 const projects = [
   {
     type: 'iframe',
@@ -108,6 +103,7 @@ const projects = [
   const items      = document.querySelectorAll('.project-item');
   const wrapper    = document.getElementById('preview-wrapper');
   const currentNum = document.getElementById('current-num');
+  let activeWs     = null;
 
   function buildOverlay() {
     const overlay = document.createElement('div');
@@ -125,6 +121,11 @@ const projects = [
 
   function loadPreview(index, animate) {
     const project = projects[index];
+
+    if (activeWs) {
+      activeWs.close();
+      activeWs = null;
+    }
 
     if (animate) {
       const existing = wrapper.querySelector('img, iframe, div');
@@ -184,6 +185,7 @@ const projects = [
           ansi.use_classes = false;
 
           const ws = new WebSocket(project.src);
+          activeWs = ws;
 
           ws.onopen = () => {
             output.innerHTML = '';
@@ -200,6 +202,7 @@ const projects = [
 
           ws.onclose = () => {
             output.innerHTML += '\n[Sesión cerrada]';
+            activeWs = null;
           };
 
           input.addEventListener('keydown', (e) => {

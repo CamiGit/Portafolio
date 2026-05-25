@@ -152,22 +152,7 @@ nav.scrolled {
   width: 100%;
 }
 
-.nav-cta {
-  background: var(--green);
-  color: var(--bg);
-  padding: .55rem 1.5rem;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background .25s, transform .2s;
-}
-
-.nav-cta:hover {
-  background: var(--green-dark);
-  transform: translateY(-1px);
-}
-
+.nav-cta,
 .nav-cv {
   background: var(--green);
   color: var(--bg);
@@ -179,6 +164,7 @@ nav.scrolled {
   transition: background .25s, transform .2s;
 }
 
+.nav-cta:hover,
 .nav-cv:hover {
   background: var(--green-dark);
   transform: translateY(-1px);
@@ -305,8 +291,8 @@ section {
 
 /* Descripción principal dentro del hero. */
 .hero-desc {
-  font-size: 1.7rem;
-  line-height: 2.4rem;
+  font-size: 1.1rem;
+  line-height: 1.75rem;
   color: var(--muted);
   max-width: 700px;
   margin-bottom: 2.2rem;
@@ -376,24 +362,6 @@ section {
   z-index: 1;
 }
 
-/* Contenedor de avatar o placeholder de imagen principal */
-.hero-avatar-placeholder {
-  width: 500px;
-  height: 500px;
-  border-radius: 24px;
-  background: var(--surface);
-  border: 2px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: .8rem;
-  color: var(--muted);
-  font-size: .85rem;
-  position: relative;
-  z-index: 1;
-}
-
 /* Estilo alternativo para imagen secundaria de avatar */
 .hero-avatar-about {
   width: 100%;
@@ -406,12 +374,6 @@ section {
   background: var(--surface);
   position: relative;
   z-index: 1;
-}
-
-.hero-avatar-placeholder i {
-  font-size: 3.5rem;
-  color: var(--green);
-  opacity: .7;
 }
 
 .avatar-glow {
@@ -601,11 +563,16 @@ section {
   display: flex;
   align-items: center;
   gap: .35rem;
-  transition: opacity .2s;
+  border: 1px solid rgba(0, 200, 150, 0.4);
+  padding: .35rem .85rem;
+  border-radius: 6px;
+  transition: background .2s, border-color .2s, transform .2s;
 }
 
 .project-link:hover {
-  opacity: .7;
+  background: var(--green-glow);
+  border-color: var(--green);
+  box-shadow: 0 2px 10px rgba(0, 200, 150, 0.2);
 }
 
 /* Estado activo */
@@ -692,11 +659,14 @@ section {
 }
 
 .preview-counter .divider {
+  width: auto;
+  height: auto;
+  background: none;
   opacity: .4;
 }
 
 /* ---- RESPONSIVE ---- */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .projects-container {
     grid-template-columns: 1fr;
   }
@@ -835,8 +805,17 @@ section {
 
 .timeline-item {
   position: relative;
-  margin-bottom: 2.5rem;
-  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color .3s, box-shadow .3s;
+}
+
+.timeline-item:hover {
+  border-color: rgba(0, 200, 150, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 200, 150, 0.08);
 }
 
 .timeline-dot {
@@ -937,26 +916,6 @@ section {
   position: relative;
   max-width: 420px;
   margin: 0 auto;
-}
-
-.about-img-placeholder {
-  width: 100%;
-  aspect-ratio: 4/5;
-  border-radius: 20px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  color: var(--muted);
-}
-
-.about-img-placeholder i {
-  font-size: 4rem;
-  color: var(--green);
-  opacity: .6;
 }
 
 .about-text .section-header {
@@ -1069,17 +1028,6 @@ footer p {
   flex: 1;
 }
 
-.footer-logo {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  color: var(--white);
-  font-size: 1rem;
-}
-
-.footer-logo span {
-  color: var(--green);
-}
-
 .back-top {
   width: 36px;
   height: 36px;
@@ -1177,7 +1125,7 @@ footer p {
   }
 
   nav .nav-links,
-  nav .nav-cta {
+  nav .nav-actions {
     display: none;
   }
 
@@ -1198,9 +1146,15 @@ footer p {
     gap: 1.2rem;
   }
 
-  nav.menu-open .nav-cta {
-    display: block;
+  nav.menu-open .nav-actions {
+    display: flex;
+    flex-direction: column;
     margin: 0 5% 1.5rem;
+    gap: .8rem;
+  }
+
+  nav.menu-open .nav-cta,
+  nav.menu-open .nav-cv {
     text-align: center;
   }
 }

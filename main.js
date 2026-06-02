@@ -82,7 +82,7 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 const projects = [
   {
     type: 'iframe',
-    src:  'https://mo-wood.vercel.app/'
+    src:  'https://gestionar-reservas.vercel.app/'
   },
   {
     type: 'iframe',
@@ -93,9 +93,10 @@ const projects = [
     src:  'wss://clinica-server-production.up.railway.app'
   },
   {
-    type: 'image',
-    src:  'assets/timelyApp/timelyApp.png'
+    type: 'iframe',
+    src:  'https://mo-wood.vercel.app/'
   },
+  
 ];
 
 

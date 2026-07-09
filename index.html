@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
   <title>Camilo Orjuela | Full Stack Developer</title>
+
+  <!-- Tema: se resuelve antes de pintar para evitar parpadeo -->
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 
   <!-- Fuentes -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <!-- Íconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -21,53 +31,63 @@
   <!-- ═══════════════ NAVBAR ═══════════════ -->
   <nav id="navbar">
     <a href="#inicio" class="nav-logo" aria-label="Inicio">
-      <img src="assets/Logo.png" alt="Logo de la marca personal" class="nav-logo-img">
+      <img src="assets/logo-nav.png" alt="Camilo Orjuela — Ingeniero Full Stack" class="nav-logo-img logo-dark">
+      <img src="assets/logo-nav-light.png" alt="Camilo Orjuela — Ingeniero Full Stack" class="nav-logo-img logo-light">
     </a>
     <ul class="nav-links">
-      <li><a href="#inicio" class="active">Inicio</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#educacion">Educación</a></li>
-      <li><a href="#experiencia">Experiencia</a></li>
-      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#inicio" class="active" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+      <li><a href="#educacion" data-i18n="nav.education">Educación</a></li>
+      <li><a href="#experiencia" data-i18n="nav.experience">Experiencia</a></li>
+      <li><a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="assets/CV-Camilo-Orjuela.pdf" download class="nav-cv">Descargar CV</a>
-      <a href="mailto:camilo.orjuela@hotmail.com" class="nav-cta">Contáctame</a>
+      <a href="assets/CV-Camilo-Orjuela.pdf" download class="nav-cv" data-i18n="nav.cv">Descargar CV</a>
+      <a href="mailto:camilo.orjuela@hotmail.com" class="nav-cta" data-i18n="nav.contact">Contáctame</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-tools">
+      <button id="lang-toggle" class="tool-btn" aria-label="Switch language / Cambiar idioma">
+        <span id="lang-label">EN</span>
+      </button>
+      <button id="theme-toggle" class="tool-btn" aria-label="Cambiar tema">
+        <i class="fa-solid fa-sun icon-sun"></i>
+        <i class="fa-solid fa-moon icon-moon"></i>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- ═══════════════ HERO ═══════════════ -->
   <section id="inicio">
     <div class="hero-content">
-      <div class="hero-badge">Disponible</div>
+      <div class="hero-badge" data-i18n="hero.badge">Disponible</div>
 
-      <h1 class="hero-title">
+      <h1 class="hero-title" data-i18n-html="hero.title">
         Hola, soy <span class="accent">Camilo Orjuela</span>
         <span class="line2">Full Stack Developer</span>
       </h1>
-      <p class="hero-desc">
+      <p class="hero-desc" data-i18n="hero.desc">
         Desarrollador apasionado por construir soluciones web completas, desde interfaces modernas hasta APIs robustas.
         Enfocado en código limpio, buenas prácticas y aprendizaje continuo.
       </p>
       <div class="hero-btns">
-        <a href="#proyectos" class="btn-primary">Ver proyectos</a>
-        <a href="#sobre-mi" class="btn-outline">Sobre mí</a>
+        <a href="#proyectos" class="btn-primary" data-i18n="hero.viewProjects">Ver proyectos</a>
+        <a href="#sobre-mi" class="btn-outline" data-i18n="hero.aboutBtn">Sobre mí</a>
       </div>
       <div class="hero-stats">
         <div class="stat-item">
           <div class="stat-num">6+</div>
-          <div class="stat-label">Tecnologías</div>
+          <div class="stat-label" data-i18n="hero.statTech">Tecnologías</div>
         </div>
         <div class="stat-item">
           <div class="stat-num">3+</div>
-          <div class="stat-label">Proyectos</div>
+          <div class="stat-label" data-i18n="hero.statProjects">Proyectos</div>
         </div>
         <div class="stat-item">
           <div class="stat-num">5+</div>
-          <div class="stat-label">Años en formación</div>
+          <div class="stat-label" data-i18n="hero.statYears">Años en formación</div>
         </div>
       </div>
     </div>
@@ -84,8 +104,8 @@
   <section id="proyectos">
 
     <div class="section-header reveal" style="grid-column: 1 / -1;">
-      <span class="section-tag">Mi trabajo</span>
-      <h2 class="section-title"><span>Proyectos</span> Destacados</h2>
+      <span class="section-tag" data-i18n="proj.tag">Mi trabajo</span>
+      <h2 class="section-title" data-i18n-html="proj.title"><span>Proyectos</span> Destacados</h2>
     </div>
     <div class="projects-container">
 
@@ -96,7 +116,7 @@
             <span class="project-number">01</span>
             <div class="project-meta">
               <h3 class="project-name">Style Factory</h3>
-              <p class="project-desc">Plataforma full stack para gestión de reservas y clientes, con frontend en JavaScript vanilla y API REST desarrollada en Spring Boot.</p>
+              <p class="project-desc" data-i18n="proj.d1">Plataforma full stack para gestión de reservas y clientes, con frontend en JavaScript vanilla y API REST desarrollada en Spring Boot.</p>
               <div class="project-tags">
                 <span>JavaScript</span><span>HTML/CSS</span><span>Spring Boot</span>
               </div>
@@ -106,14 +126,14 @@
                     <path
                       d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                   </svg>
-                  Repositorio Front
+                  <span data-i18n="proj.repoFront">Repositorio Front</span>
                 </a>
                 <a href="https://github.com/CamiGit/Backend_Style_Factory.git" class="project-link">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path
                       d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                   </svg>
-                  Repositorio Back
+                  <span data-i18n="proj.repoBack">Repositorio Back</span>
                 </a>
                 <a href="https://gestionar-reservas.vercel.app/" class="project-link">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -121,7 +141,7 @@
                     <polyline points="15 3 21 3 21 9" />
                     <line x1="10" y1="14" x2="21" y2="3" />
                   </svg>
-                  Demo
+                  <span data-i18n="proj.demo">Demo</span>
                 </a>
               </div>
             </div>
@@ -132,8 +152,8 @@
           <div class="project-info">
             <span class="project-number">02</span>
             <div class="project-meta">
-              <h3 class="project-name">Quiz Interactivo</h3>
-              <p class="project-desc">Aplicación de trivia con consumo de API externa, sistema de puntuación en tiempo real y modo claro/oscuro, construida con React.</p>
+              <h3 class="project-name" data-i18n="proj.n2">Quiz Interactivo</h3>
+              <p class="project-desc" data-i18n="proj.d2">Aplicación de trivia con consumo de API externa, sistema de puntuación en tiempo real y modo claro/oscuro, construida con React.</p>
               <div class="project-tags">
                 <span>React</span><span>HTML/CSS</span>
               </div>
@@ -143,7 +163,7 @@
                     <path
                       d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                   </svg>
-                  Repositorio
+                  <span data-i18n="proj.repo">Repositorio</span>
                 </a>
                 <a href="https://quiz-woad-seven-86.vercel.app/" class="project-link">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -151,7 +171,7 @@
                     <polyline points="15 3 21 3 21 9" />
                     <line x1="10" y1="14" x2="21" y2="3" />
                   </svg>
-                  Demo
+                  <span data-i18n="proj.demo">Demo</span>
                 </a>
               </div>
             </div>
@@ -162,8 +182,8 @@
           <div class="project-info">
             <span class="project-number">03</span>
             <div class="project-meta">
-              <h3 class="project-name">API REST — Clínica Médica</h3>
-              <p class="project-desc">Backend para gestión de citas médicas con Java y Spring Boot: CRUD completo, validaciones de negocio y arquitectura RESTful bien estructurada.</p>
+              <h3 class="project-name" data-i18n="proj.n3">API REST — Clínica Médica</h3>
+              <p class="project-desc" data-i18n="proj.d3">Backend para gestión de citas médicas con Java y Spring Boot: CRUD completo, validaciones de negocio y arquitectura RESTful bien estructurada.</p>
               <div class="project-tags">
                 <span>Java</span><span>Git</span>
               </div>
@@ -173,7 +193,7 @@
                     <path
                       d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                   </svg>
-                  Repositorio
+                  <span data-i18n="proj.repo">Repositorio</span>
                 </a>
               </div>
             </div>
@@ -185,7 +205,7 @@
             <span class="project-number">04</span>
             <div class="project-meta">
               <h3 class="project-name">MoWood</h3>
-              <p class="project-desc">Sitio web corporativo para empresa de muebles artesanales, con catálogo de productos interactivo y diseño responsive desarrollado en React.</p>
+              <p class="project-desc" data-i18n="proj.d4">Sitio web corporativo para empresa de muebles artesanales, con catálogo de productos interactivo y diseño responsive desarrollado en React.</p>
               <div class="project-tags">
                 <span>React</span><span>HTML/CSS</span><span>Git</span>
               </div>
@@ -195,7 +215,7 @@
                     <path
                       d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                   </svg>
-                  Repositorio
+                  <span data-i18n="proj.repo">Repositorio</span>
                 </a>
                 <a href="https://mo-wood.vercel.app/" class="project-link">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -203,7 +223,7 @@
                     <polyline points="15 3 21 3 21 9" />
                     <line x1="10" y1="14" x2="21" y2="3" />
                   </svg>
-                  Demo
+                  <span data-i18n="proj.demo">Demo</span>
                 </a>
               </div>
             </div>
@@ -234,44 +254,44 @@
   <!-- ═══════════════ EDUCACIÓN ═══════════════ -->
   <section id="educacion">
     <div class="section-header reveal">
-      <div class="section-tag">Formación académica</div>
-      <h2 class="section-title">Mi <span>Educación</span></h2>
+      <div class="section-tag" data-i18n="edu.tag">Formación académica</div>
+      <h2 class="section-title" data-i18n-html="edu.title">Mi <span>Educación</span></h2>
     </div>
 
     <div class="edu-grid">
       <div class="edu-card reveal reveal-delay-1">
-        <span class="edu-year">Enero 2027</span>
-        <div class="edu-degree">Especialista en Seguridad de la información con énfasis en Desarrollo Seguro de Software
+        <span class="edu-year" data-i18n="edu.y1">Enero 2027</span>
+        <div class="edu-degree" data-i18n="edu.d1">Especialista en Seguridad de la información con énfasis en Desarrollo Seguro de Software
         </div>
-        <div class="edu-school"><i class="fa-solid fa-building-columns"></i> Politecnico Grancolombiano </div>
+        <div class="edu-school"><i class="fa-solid fa-building-columns"></i> Politécnico Grancolombiano </div>
       </div>
 
       <div class="edu-card reveal reveal-delay-2">
-        <span class="edu-year">Junio 2026</span>
-        <div class="edu-degree">Desarrollador Junior Full Stack</div>
+        <span class="edu-year" data-i18n="edu.y2">Junio 2026</span>
+        <div class="edu-degree" data-i18n="edu.d2">Desarrollador Junior Full Stack</div>
         <div class="edu-school"><i class="fa-solid fa-certificate"></i> Generation </div>
       </div>
 
       <div class="edu-card reveal reveal-delay-3">
-        <span class="edu-year">Enero 2026</span>
-        <div class="edu-degree">Ingeniero de Software</div>
+        <span class="edu-year" data-i18n="edu.y3">Enero 2026</span>
+        <div class="edu-degree" data-i18n="edu.d3">Ingeniero de Software</div>
         <div class="edu-school"><i class="fa-solid fa-building-columns"></i> Politécnico Grancolombiano </div>
       </div>
     </div>
 
         <!-- SKILLS -->
     <div class="skills-section reveal">
-      <div class="skills-title">Tecnologías que manejo</div>
+      <div class="skills-title" data-i18n="skills.title">Tecnologías que manejo</div>
       <div class="skills-grid">
         <div class="skill-pill"><i class="fa-brands fa-html5"></i> HTML / CSS / JS</div>
         <div class="skill-pill"><i class="fa-brands fa-node-js"></i> Node.js</div>
         <div class="skill-pill"><i class="fa-brands fa-python"></i> Python</div>
         <div class="skill-pill"><i class="fa-brands fa-react"></i> React</div>
-        <div class="skill-pill"><i class="fa-solid fa-database"></i> SQL / Bases de datos</div>
+        <div class="skill-pill"><i class="fa-solid fa-database"></i> <span data-i18n="skills.sql">SQL / Bases de datos</span></div>
         <div class="skill-pill"><i class="fa-brands fa-java"></i> Java</div>
         <div class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git / GitHub</div>
         <div class="skill-pill"><i class="fa-solid fa-terminal"></i> REST APIs</div>
-        <div class="skill-pill"><i class="fa-solid fa-code"></i> Metodologías Ágiles</div>
+        <div class="skill-pill"><i class="fa-solid fa-code"></i> <span data-i18n="skills.agile">Metodologías Ágiles</span></div>
       </div>
     </div>
   </section>
@@ -281,8 +301,8 @@
   <!-- ═══════════════ EXPERIENCIA ═══════════════ -->
   <section id="experiencia">
     <div class="section-header reveal">
-      <div class="section-tag">Trayectoria profesional</div>
-      <h2 class="section-title">Mi <span>Experiencia</span></h2>
+      <div class="section-tag" data-i18n="exp.tag">Trayectoria profesional</div>
+      <h2 class="section-title" data-i18n-html="exp.title">Mi <span>Experiencia</span></h2>
     </div>
 
     <div class="timeline">
@@ -290,11 +310,11 @@
       <div class="timeline-item reveal reveal-delay-2">
         <div class="timeline-dot"></div>
         <div class="timeline-header">
-          <span class="timeline-role">Desarrollador Web Freelance</span>
-          <span class="timeline-period">2025 - Presente</span>
+          <span class="timeline-role" data-i18n="exp.r1">Desarrollador Web Freelance</span>
+          <span class="timeline-period" data-i18n="exp.p1">2025 - Presente</span>
         </div>
-        <div class="timeline-company"><i class="fa-solid fa-laptop-code"></i> Proyectos independientes</div>
-        <p class="timeline-desc"> ● Desarrollo de sitio web corporativo para empresa de muebles en React con catálogo de
+        <div class="timeline-company"><i class="fa-solid fa-laptop-code"></i> <span data-i18n="exp.c1">Proyectos independientes</span></div>
+        <p class="timeline-desc" data-i18n="exp.d1"> ● Desarrollo de sitio web corporativo para empresa de muebles en React con catálogo de
           productos y diseño responsive. Plataforma e-commerce Full Stack con autenticación de usuarios, carrito de
           compras e integración de base de datos relacional (Java + Spring Boot). Dashboards interactivos con Chart.js y
           Power BI para análisis estratégico de datos de negocio.</p>
@@ -308,15 +328,13 @@
       <div class="timeline-item reveal reveal-delay-1">
         <div class="timeline-dot"></div>
         <div class="timeline-header">
-          <span class="timeline-role">Manager</span>
+          <span class="timeline-role" data-i18n="exp.r2">Desarrollador de Automatización de Procesos</span>
           <span class="timeline-period">2023 - 2025</span>
         </div>
         <div class="timeline-company"><i class="fa-solid fa-building"></i> Ko Asian Kitchen </div>
-        <p class="timeline-desc">● Diseñé e implementé un sistema de control de inventarios a medida con Python,
-          reduciendo las pérdidas en un 97% mediante automatizaciones de seguimiento y reportes analíticos integrados.
+        <p class="timeline-desc" data-i18n-html="exp.d2">●Diseñé e implementé un sistema de control de inventarios a medida con Python, reduciendo las pérdidas en un 97% mediante automatizaciones de seguimiento y reportes analíticos integrados en Power BI.
           <br>
-          ● Desarrollé e implementé aplicaciones web personalizadas para la gestión de puntos de venta, optimizando
-          procesos operativos mediante soluciones de software escalables y de alto impacto.</p>
+          ● Desarrollé e implementé aplicaciones web personalizadas para la gestión de puntos de venta, optimizando procesos operativos mediante soluciones de software escalables.</p>
         <div class="timeline-tags">
           <span class="tag">Python</span>
           <span class="tag">SQL</span>
@@ -327,18 +345,16 @@
       <div class="timeline-item reveal reveal-delay-3">
         <div class="timeline-dot"></div>
         <div class="timeline-header">
-          <span class="timeline-role">Analista de Datos & Administrador</span>
+          <span class="timeline-role" data-i18n="exp.r3">Analista de Datos & Administrador</span>
           <span class="timeline-period">2021 - 2022</span>
         </div>
         <div class="timeline-company"><i class="fa-solid fa-building"></i> Fast Moda</div>
-        <p class="timeline-desc">● Desarrollé e integré aplicaciones de control basadas en el sistema POS, automatizando
-          el seguimiento de costos e inventarios mediante soluciones de software a medida. <br>
-          ● Construí dashboards interactivos en Power BI para el análisis estratégico de datos, impulsando la
-          transformación digital del negocio mediante visualización y toma de decisiones basada en datos.</p>
+        <p class="timeline-desc" data-i18n-html="exp.d3">● Optimicé el control de inventarios y costos mediante un desarrollo a medida integrado a sistemas POS, logrando trazabilidad del 100% en el flujo de suministros. <br>
+          ● Construí tableros de control en Power BI que transformaron datos crudos en inteligencia de negocio, acelerando la digitalización de la compañía.</p>
         <div class="timeline-tags">
           <span class="tag">Python</span>
           <span class="tag">Linux</span>
-          <span class="tag">Redes</span>
+          <span class="tag" data-i18n="exp.tRedes">Redes</span>
           <span class="tag">SQL</span>
         </div>
       </div>
@@ -351,15 +367,16 @@
   <!-- ═══════════════ SOBRE MÍ ═══════════════ -->
   <section id="sobre-mi">
     <div class="about-img-wrap reveal">
+      <div class="avatar-glow"></div>
       <img src="assets/img_portafolio.png" alt="Camilo Orjuela" class="hero-avatar-about">
     </div>
 
     <div class="about-text">
       <div class="section-header reveal">
-        <div class="section-tag">Conóceme</div>
-        <h2 class="section-title">Sobre <span>Mí</span></h2>
+        <div class="section-tag" data-i18n="about.tag">Conóceme</div>
+        <h2 class="section-title" data-i18n-html="about.title">Sobre <span>Mí</span></h2>
       </div>
-      <p class="about-bio reveal">
+      <p class="about-bio reveal" data-i18n="about.bio">
         Desarrollador Full Stack con formación en Ingeniería de Software y especialización en seguridad de la
         información. Con sólido enfoque en backend usando Java (Spring Boot) y Python (Django), y experiencia en
         frontend con React. He construido aplicaciones web completas como e-commerce, gestores de reservas e interfaces
@@ -368,27 +385,27 @@
       </p>
       <div class="about-info reveal reveal-delay-1">
         <div class="info-item">
-          <div class="info-label">Nombre</div>
+          <div class="info-label" data-i18n="about.lName">Nombre</div>
           <div class="info-val">Camilo Orjuela Bonilla</div>
         </div>
         <div class="info-item">
-          <div class="info-label">Ubicación</div>
+          <div class="info-label" data-i18n="about.lLocation">Ubicación</div>
           <div class="info-val">Colombia</div>
         </div>
         <div class="info-item">
-          <div class="info-label">Perfil</div>
+          <div class="info-label" data-i18n="about.lRole">Perfil</div>
           <div class="info-val">Full Stack Developer</div>
         </div>
         <div class="info-item">
-          <div class="info-label">Estado</div>
-          <div class="info-val" style="color:var(--green);">✓ Disponible</div>
+          <div class="info-label" data-i18n="about.lStatus">Estado</div>
+          <div class="info-val info-available" data-i18n="about.vStatus">✓ Disponible</div>
         </div>
         <div class="info-item">
-          <div class="info-label">Correo</div>
+          <div class="info-label" data-i18n="about.lEmail">Correo</div>
           <div class="info-val">camilo.orjuela@hotmail.com</div>
         </div>
         <div class="info-item">
-          <div class="info-label">Teléfono</div>
+          <div class="info-label" data-i18n="about.lPhone">Teléfono</div>
           <div class="info-val">+57 300 337 1524</div>
         </div>
       </div>
@@ -403,18 +420,18 @@
 
   <!-- ═══════════════ CONTACT STRIP ═══════════════ -->
   <div class="contact-strip reveal">
-    <h2>¿Tienes un proyecto en mente?</h2>
-    <p>Estoy abierto a oportunidades laborales, proyectos freelance y colaboraciones.</p>
+    <h2 data-i18n="contact.title">¿Tienes un proyecto en mente?</h2>
+    <p data-i18n="contact.desc">Estoy abierto a oportunidades laborales, proyectos freelance y colaboraciones.</p>
     <div class="contact-actions">
       <a href="mailto:camilo.orjuela@hotmail.com" class="btn-primary"><i class="fa-solid fa-paper-plane"></i>
-        &nbsp;Enviar mensaje</a>
+        &nbsp;<span data-i18n="contact.send">Enviar mensaje</span></a>
       <a href="https://wa.me/573003371524" class="btn-outline"><i class="fa-brands fa-whatsapp"></i> &nbsp;WhatsApp</a>
     </div>
   </div>
 
   <!-- ═══════════════ FOOTER ═══════════════ -->
   <footer>
-    <p> 2026 Camilo Orjuela ©· Hecho con 💚 en Colombia</p>
+    <p data-i18n="footer.text"> 2026 Camilo Orjuela ©· Hecho con 💚 en Colombia</p>
     <a href="#inicio" class="back-top" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></a>
   </footer>
 
